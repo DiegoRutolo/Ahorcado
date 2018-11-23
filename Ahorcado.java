@@ -19,8 +19,8 @@ class Palabra {
 	String getSecreto() {
 		String secreto = "";
 		for (int i = 0; i < this.palabra.length(); i++) {
-			if () {
-				secreto = secreto + this.palabra[i];
+			if (new String(this.letras).contais(this.palabra.charAt(i))) {
+				secreto = secreto + this.palabra.charAt(i);
 			} else {
 				secreto = secreto + "*";
 			}

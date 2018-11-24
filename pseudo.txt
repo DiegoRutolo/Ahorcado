@@ -1,0 +1,37 @@
+/**VERSION 1**/
+LISTA = lista de palabras
+PAL = palabra aleatoria de LISTA
+Print(mensaje de saludo)
+Bucle (FALLOS < 10):
+	imprimir asteriscos
+	Si (palabra completa):
+		Fin
+	Guardar letra L del teclado.
+	Si (PAL no contiene L):
+		fallos++
+
+
+
+
+
+/**VERSION 2**/
+clase Palabra:
+	String texto
+	char[] letras
+	int nFallos
+
+	secreto()
+	completa()
+
+
+
+Main:
+	LISTA = lista de palabras
+	Palabra PAL = palabra aleatoria de LISTA
+	Print(mensaje de saludo)
+	Bucle (PAL.fallos < 10):
+		imprimir PAL.secreto()
+		Si (PAL.completa()):
+			Fin
+		Guardar letra L del teclado
+		comprobar L

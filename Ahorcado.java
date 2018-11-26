@@ -61,6 +61,35 @@ class Palabra {
 }
 
 public class Ahorcado {
+	public static void dibujito(int n) {
+		switch(n) {
+			case 1:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃\n ┃\n ┃\n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃\n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 2:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃ \n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 3:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃                │ \n ┃                │  \n ┃                │  \n ┃                │    \n ┃                │     \n ┃                │\n ┃                  \n ┃                   \n ┃                    \n ┃                     \n ┃                      \n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 4:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃               ╱│ \n ┃              ╱ │  \n ┃             ╱  │  \n ┃            ╱   │    \n ┃           ╱    │     \n ┃                │\n ┃  \n ┃  \n ┃ \n ┃  \n ┃  \n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 5:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃               ╱│╲\n ┃              ╱ │ ╲\n ┃             ╱  │  ╲\n ┃            ╱   │   ╲\n ┃           ╱    │    ╲\n ┃                │\n ┃\n ┃\n ┃\n ┃\n ┃\n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 6:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃               ╱│╲\n ┃              ╱ │ ╲\n ┃             ╱  │  ╲\n ┃            ╱   │   ╲\n ┃           ╱    │    ╲\n ┃                │\n ┃               ╱\n ┃              ╱ \n ┃             ╱  \n ┃            ╱   \n ┃           ╱    \n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 7:
+				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃               ╱│╲\n ┃              ╱ │ ╲\n ┃             ╱  │  ╲\n ┃            ╱   │   ╲\n ┃           ╱    │    ╲\n ┃                │\n ┃               ╱ ╲\n ┃              ╱   ╲\n ┃             ╱     ╲\n ┃            ╱       ╲\n ┃           ╱         ╲\n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
+				break;
+			case 0:
+			default:
+				break;
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random rnd = new Random();
@@ -77,10 +106,12 @@ public class Ahorcado {
 				System.out.println("GANASTE :D");
 				return;
 			}
+			dibujito(palabra.fallos);
 			System.out.print("Fallos: " + palabra.fallos + " -> ");
 			palabra.addLetra(sc.next().charAt(0));
 			System.out.print("\n");
-		} while (palabra.fallos < 10);
+		} while (palabra.fallos < 7);
+		dibujito(7);
 		System.out.println("Demasiados fallos. Perdiste :-\\");
 	}
 }

@@ -61,6 +61,21 @@ class Palabra {
 }
 
 public class Ahorcado {
+	final static int MAX_FALLOS = 7;
+	final static  String[] FRUTAS = {
+		"frutas", "manzana", "sandia", "kiwi", "platano", "papaya", "pera"
+
+	};
+	final static String[] DEPORTES = {
+		"deportes", "jugger", "golf", "baloncesto", "futbol", "atletismo"
+	};
+	final static String[] CONTINENTES = {
+		"continentes", "europa", "africa", "asia", "america", "oceania", "antartida"
+	};
+	final static String[][] TEMAS = {
+		FRUTAS, DEPORTES, CONTINENTES
+	};
+
 	public static void dibujito(int n) {
 		switch(n) {
 			case 1:
@@ -84,7 +99,6 @@ public class Ahorcado {
 			case 7:
 				System.out.println(" ┏━━━━━━━━━━━━━━━━┯━━━━\n ┃                │\n ┃                │\n ┃           ╭────┴────╮\n ┃           │         │\n ┃           │  ╳   ╳  │\n ┃           │         │\n ┃           │  ╭───╮  │\n ┃           │  ╰───╯  │\n ┃           ╰────┬────╯\n ┃                │\n ┃               ╱│╲\n ┃              ╱ │ ╲\n ┃             ╱  │  ╲\n ┃            ╱   │   ╲\n ┃           ╱    │    ╲\n ┃                │\n ┃               ╱ ╲\n ┃              ╱   ╲\n ┃             ╱     ╲\n ┃            ╱       ╲\n ┃           ╱         ╲\n ┃\n ┃\n ┃\n ┃\n━┻━━━━━━━━━━━━━━━━━━━━━━━━\n");
 				break;
-			case 0:
 			default:
 				break;
 		}
@@ -93,12 +107,14 @@ public class Ahorcado {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random rnd = new Random();
-		String[] frutas = {
-			"manzana", "sandia", "kiwi"
-		};
-		Palabra palabra = new Palabra(frutas[rnd.nextInt(frutas.length)]);
+
+		/*Establecer tema*/
+		String[] tema = TEMAS[rnd.nextInt(TEMAS.length)];
+		/*Como el primer elemento de cada String[] es el nombre del tema, tengo que usar un numero aleatorio a partir de 1*/
+		Palabra palabra = new Palabra(tema[rnd.nextInt(tema.length-1)+1]);
+
 		System.out.println("Adivina la palabra.");
-		System.out.println("El tema es frutas: ");
+		System.out.println("El tema es " + tema[0] + ": ");
 		System.out.println("···················\n");
 		do {
 			System.out.println(palabra.getSecreto());
@@ -110,8 +126,8 @@ public class Ahorcado {
 			System.out.print("Fallos: " + palabra.fallos + " -> ");
 			palabra.addLetra(sc.next().charAt(0));
 			System.out.print("\n");
-		} while (palabra.fallos < 7);
-		dibujito(7);
+		} while (palabra.fallos < MAX_FALLOS);
+		dibujito(MAX_FALLOS);
 		System.out.println("Demasiados fallos. Perdiste :-\\");
 	}
 }

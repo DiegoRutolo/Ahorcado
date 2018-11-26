@@ -119,7 +119,7 @@ public class Ahorcado {
 		do {
 			System.out.println(palabra.getSecreto());
 			if (palabra.estaCompleta()) {
-				System.out.println("GANASTE :D");
+				System.out.println("GANASTE :D\nToma un caramelo \u25b6\u25cd\u25c0");
 				return;
 			}
 			dibujito(palabra.fallos);

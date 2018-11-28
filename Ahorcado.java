@@ -1,5 +1,30 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
+
+class ReproductorMidi{
+
+	public ReproductorMidi(String ficheroMidi) throws Exception{
+		//simplificamos el throws con Exception para hacer código limpio (aunque de peor calidad)
+		// lo más fácil pillar el secuenciador por defecto.
+		Sequencer sequencer = MidiSystem.getSequencer();
+		//antes de usar el secuenciaador hay que abrirlo.
+		sequencer.open();
+		// la secuencia midi es un InputStream. Puede ser un fichero, un stream de internet, ...en este caso es un fichero
+		InputStream is = new BufferedInputStream(new FileInputStream(new File(ficheroMidi)));
+		sequencer.setSequence(is);
+		//cuando nos interesa arrancamos la reproducción.
+		sequencer.start();
+		//repetimos indefinidadmente la cancion indicando que se repita LOPP_CONTINUOSLY
+		sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+	}
+}
 
 class Palabra {
 	String palabra;
@@ -64,7 +89,6 @@ public class Ahorcado {
 	final static int MAX_FALLOS = 7;
 	final static  String[] FRUTAS = {
 		"frutas", "manzana", "sandia", "kiwi", "platano", "papaya", "pera"
-
 	};
 	final static String[] DEPORTES = {
 		"deportes", "jugger", "golf", "baloncesto", "futbol", "atletismo"
@@ -72,8 +96,12 @@ public class Ahorcado {
 	final static String[] CONTINENTES = {
 		"continentes", "europa", "africa", "asia", "america", "oceania", "antartida"
 	};
+	final static String[] ANIMALES = {
+		"animales", "gato", "perro", "urogallo", "avestruz", "ornitorrinco", "kiwi",
+		"tigre", "elefane", "agaporni", "carpincho", "conejo", "oso"
+	};
 	final static String[][] TEMAS = {
-		FRUTAS, DEPORTES, CONTINENTES
+		FRUTAS, DEPORTES, CONTINENTES, ANIMALES
 	};
 
 	public static void dibujito(int n) {
@@ -104,13 +132,16 @@ public class Ahorcado {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		Random rnd = new Random();
+		File dir = new File("midi");
+		File[] pistas = dir.listFiles();
+		new ReproductorMidi("midi/" + pistas[rnd.nextInt(pistas.length)].getName());
 
 		/*Establecer tema*/
 		String[] tema = TEMAS[rnd.nextInt(TEMAS.length)];
-		/*Como el primer elemento de cada String[] es el nombre del tema, tengo que usar un numero aleatorio a partir de 1*/
+		/*Como el primer elemento de cada String[] es el nombre del tema, tengo que usar un magia negra para ocnseguir el aleatorio entre 1 y length*/
 		Palabra palabra = new Palabra(tema[rnd.nextInt(tema.length-1)+1]);
 
 		System.out.println("Adivina la palabra.");
@@ -120,7 +151,8 @@ public class Ahorcado {
 			System.out.println(palabra.getSecreto());
 			if (palabra.estaCompleta()) {
 				System.out.println("GANASTE :D\nToma un caramelo \u25b6\u25cd\u25c0");
-				return;
+				System.exit(0);
+				// return;
 			}
 			dibujito(palabra.fallos);
 			System.out.print("Fallos: " + palabra.fallos + " -> ");
@@ -129,5 +161,7 @@ public class Ahorcado {
 		} while (palabra.fallos < MAX_FALLOS);
 		dibujito(MAX_FALLOS);
 		System.out.println("Demasiados fallos. Perdiste :-\\");
+
+		System.exit(0);
 	}
 }

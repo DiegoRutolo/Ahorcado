@@ -146,18 +146,20 @@ public class Ahorcado {
 
 		System.out.println("Adivina la palabra.");
 		System.out.println("El tema es " + tema[0] + ": ");
-		System.out.println("···················\n");
+		System.out.println("-------------------\n");
 		do {
 			System.out.println(palabra.getSecreto());
-			if (palabra.estaCompleta()) {
+			dibujito(palabra.fallos);
+			System.out.print("Fallos: " + palabra.fallos + " -> ");
+			String entrada = sc.next();
+			palabra.addLetra(entrada.charAt(0));
+			System.out.print("\n");
+			if (palabra.estaCompleta() || entrada.equals(palabra.palabra)) {
+				System.out.println(palabra.palabra);
 				System.out.println("GANASTE :D\nToma un caramelo \u25b6\u25cd\u25c0");
 				System.exit(0);
 				// return;
 			}
-			dibujito(palabra.fallos);
-			System.out.print("Fallos: " + palabra.fallos + " -> ");
-			palabra.addLetra(sc.next().charAt(0));
-			System.out.print("\n");
 		} while (palabra.fallos < MAX_FALLOS);
 		dibujito(MAX_FALLOS);
 		System.out.println("Demasiados fallos. Perdiste :-\\");
